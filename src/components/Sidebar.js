@@ -12,87 +12,107 @@ import {
   UnlockOutlined,
 } from "@ant-design/icons";
 const { Sider } = Layout;
-// eslint-disable-next-line
-// const items2 = [
-//   HomeOutlined,
-//   ShoppingOutlined,
-//   FireOutlined,
-//   LayoutOutlined,
-//   PieChartOutlined,
-//   PictureOutlined,
-//   CompassOutlined,
-//   CrownOutlined,
-//   UnlockOutlined,
-// ].map((icon, index) => {
-//   const key = String(index + 1);
-//   return {
-//     key: `sub${key}`,
-//     icon: React.createElement(icon),
-//     label: `${key}`,
-//     children: new Array(4).fill(null).map((_, j) => {
-//       const subKey = { name };
-//       return {
-//         key: subKey,
-//         label: `${subKey}`,
-//       };
-//     }),
-//   };
-// });
-// const name = [
-//   {
-//     key: ``,
-//     icon: React.createElement(HomeOutlined),
-//     label: <div>One </div>,
-//     children: new Array(4).fill(null).map((_, j) => {
-//       const subKey = 12;
-//       return {
-//         key: subKey,
-//         label: `${subKey}`,
-//       };
-//     }),
-//   },
-//   {
-//     key: ``,
-//     icon: React.createElement(HomeOutlined),
-//     label: `jjvjvjvjhv`,
-//     children: new Array(4).fill(null).map((_, j) => {
-//       const subKey = 1;
-//       return {
-//         key: subKey,
-//         label: `${subKey}`,
-//       };
-//     }),
-//   },
-//   {
-//     key: ``,
-//     icon: React.createElement(HomeOutlined),
-//     label: `jjvjvjvjhv`,
-//     // children: new Array(4).fill(null).map((_, j) => {
-//     //   const subKey = 1;
-//     //   return {
-//     //     key: subKey,
-//     //     label: `${subKey}`,
-//     //   };
-//     // }),
-//   },
-// ];
-const items2 = [CompassOutlined, CrownOutlined, FireOutlined].map(
-  (icon, index) => {
-    const key = String(index + 1);
-    return {
-      key: `sub${key}`,
-      icon: React.createElement(icon),
-      label: `subnav ${key}`,
-      children: new Array(4).fill(null).map((_, j) => {
-        const subKey = index * 4 + j + 1;
-        return {
-          key: subKey,
-          label: `option${subKey}`,
-        };
-      }),
-    };
-  }
-);
+
+// const items2 = [HomeOutlined, ShoppingOutlined, FireOutlined].map(
+//   (icon, index) => {
+//     const key = String(index + 1);
+//     return {
+//       key: `sub${key}`,
+//       icon: React.createElement(icon),
+//       label: `subnav ${key}`,
+//       children: new Array(4).fill(null).map((_, j) => {
+//         const subKey = index * 4 + j + 1;
+//         return {
+//           key: subKey,
+//           label: `option${subKey}`,
+//         };
+//       }),
+//     };
+//   }
+// );
+const sideItems = [
+  {
+    key: 1,
+    icon: <HomeOutlined />,
+    label: "Home",
+  },
+  {
+    key: 2,
+    icon: <ShoppingOutlined />,
+    label: "Apps",
+    children: new Array(4).fill(null).map((_, j) => {
+      return {
+        key: 1,
+        label: `option`,
+      };
+    }),
+  },
+  {
+    key: 3,
+    icon: <FireOutlined />,
+    label: "Widgets",
+  },
+  {
+    key: 4,
+    icon: <LayoutOutlined />,
+    label: "Taskboard",
+  },
+  {
+    key: 5,
+    icon: <PieChartOutlined />,
+    label: "Charts",
+    children: new Array(4).fill(null).map((_, j) => {
+      return {
+        key: 1,
+        label: `option`,
+      };
+    }),
+  },
+  {
+    key: 6,
+    icon: <PictureOutlined />,
+    label: "Media",
+    children: new Array(4).fill(null).map((_, j) => {
+      return {
+        key: 1,
+        label: `option`,
+      };
+    }),
+  },
+  {
+    key: 7,
+    icon: <CompassOutlined />,
+    label: "Maps",
+    children: new Array(4).fill(null).map((_, j) => {
+      return {
+        key: 1,
+        label: `option`,
+      };
+    }),
+  },
+  {
+    key: 8,
+    icon: <CrownOutlined />,
+    label: "Extras",
+    children: new Array(4).fill(null).map((_, j) => {
+      return {
+        key: 1,
+        label: `option`,
+      };
+    }),
+  },
+  {
+    key: 9,
+    icon: <UnlockOutlined />,
+    label: "Authentication",
+    children: new Array(4).fill(null).map((_, j) => {
+      return {
+        key: 1,
+        label: `option`,
+      };
+    }),
+  },
+];
 const Sidebar = () => {
   return (
     <Sider
@@ -108,40 +128,10 @@ const Sidebar = () => {
         style={{
           height: "100%",
         }}
-        items={items2}
+        items={sideItems}
       />
     </Sider>
   );
 };
-//   const {
-//     token: { colorBgContainer },
-//   } = theme.useToken();
-//   return (
-//     <>
-//       <Layout
-//         style={{
-//           padding: "24px 0",
-//           background: colorBgContainer,
-//         }}
-//       >
-//         <Sider
-//           style={{
-//             background: colorBgContainer,
-//           }}
-//           width={200}
-//         >
-//           <Menu
-//             mode="inline"
-//             defaultSelectedKeys={["1"]}
-//             defaultOpenKeys={["sub1"]}
-//             style={{
-//               height: "100%",
-//             }}
-//             items={name}
-//           />
-//         </Sider>
-//       </Layout>
-//     </>
-//   );
 
 export default Sidebar;
