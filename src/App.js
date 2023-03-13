@@ -1,5 +1,6 @@
-import { Col, Layout, Row, theme } from "antd";
+import { Layout, theme } from "antd";
 import React from "react";
+import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import GlobalStyle from "./styles/globalstyles";
@@ -9,10 +10,10 @@ const { Content } = Layout;
 //   label: `${key}`,
 // }));
 
-const style = {
-  background: "#0092ff",
-  padding: "8px 30px",
-};
+// const style = {
+//   background: "#0092ff",
+//   padding: "8px 30px",
+// };
 // const StyledHeader = styled(Header)`
 //   &&.ant-layout-header {
 //     background-color: white;
@@ -49,7 +50,8 @@ const App = () => {
             }}
           >
             <Sidebar />
-            <Content
+            <Home />
+            {/* <Content
               style={{
                 padding: "0 24px",
                 minHeight: 280,
@@ -73,7 +75,7 @@ const App = () => {
                   <div style={style}>Opens</div>
                 </Col>
               </Row>
-            </Content>
+            </Content> */}
           </Layout>
         </Content>
       </Layout>

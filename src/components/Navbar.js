@@ -1,13 +1,10 @@
 import {
   BellOutlined,
-  DownOutlined,
-  HomeOutlined,
   InteractionOutlined,
   PlaySquareOutlined,
   SettingOutlined,
-  UserOutlined,
 } from "@ant-design/icons";
-import { Avatar, Button, Dropdown, Menu, message, Space } from "antd";
+import { Avatar, Button, Menu, message } from "antd";
 import { Header } from "antd/es/layout/layout";
 import React from "react";
 import styled from "styled-components";
@@ -65,7 +62,7 @@ const navItemsRight = [
         icon={
           <img
             src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600"
-            alt="user image"
+            alt="user-pic"
           />
         }
       />
@@ -89,6 +86,7 @@ const StyledHeader = styled(Header)`
     width: auto;
   }
 `;
+// eslint-disable-next-line
 const StyledButton = styled(Button)`
   text-decoration: none;
   border: none;
@@ -121,6 +119,7 @@ const items = [
     icon: <SettingOutlined />,
   },
 ];
+// eslint-disable-next-line
 const menuProps = {
   items,
   onClick: handleMenuClick,
