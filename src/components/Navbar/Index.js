@@ -127,19 +127,8 @@ const menuProps = {
 const Navbar = () => {
   return (
     <StyledHeader>
-      {/* <div className="logo" /> */}
-      <Menu
-        theme="light"
-        mode="horizontal"
-        // defaultSelectedKeys={["2"]}
-        items={navItems}
-      />
+      <Menu theme="light" mode="horizontal" items={navItems} />
       <Menu mode="horizontal" className="menu-right" items={navItemsRight} />
-      {/* <Dropdown menu={menuProps}>
-        <StyledButton>
-          <Space>Button</Space>
-        </StyledButton>
-      </Dropdown> */}
     </StyledHeader>
   );
 };

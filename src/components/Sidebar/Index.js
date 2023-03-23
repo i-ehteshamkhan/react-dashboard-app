@@ -13,23 +13,25 @@ import {
 } from "@ant-design/icons";
 const { Sider } = Layout;
 
-// const items2 = [HomeOutlined, ShoppingOutlined, FireOutlined].map(
-//   (icon, index) => {
-//     const key = String(index + 1);
-//     return {
-//       key: `sub${key}`,
-//       icon: React.createElement(icon),
-//       label: `subnav ${key}`,
-//       children: new Array(4).fill(null).map((_, j) => {
-//         const subKey = index * 4 + j + 1;
-//         return {
-//           key: subKey,
-//           label: `option${subKey}`,
-//         };
-//       }),
-//     };
-//   }
-// );
+const AppChild = [
+  {
+    key: 10,
+    label: "Calendar",
+  },
+  {
+    key: 11,
+    label: "Messages",
+  },
+  {
+    key: 12,
+    label: "Social",
+  },
+  {
+    key: 13,
+    label: "Chats",
+  },
+];
+
 const sideItems = [
   {
     key: 1,
@@ -40,12 +42,7 @@ const sideItems = [
     key: 2,
     icon: <ShoppingOutlined />,
     label: "Apps",
-    children: new Array(4).fill(null).map((_, j) => {
-      return {
-        key: 1,
-        label: `option`,
-      };
-    }),
+    children: AppChild,
   },
   {
     key: 3,
@@ -113,6 +110,7 @@ const sideItems = [
     }),
   },
 ];
+
 const Sidebar = () => {
   return (
     <Sider
