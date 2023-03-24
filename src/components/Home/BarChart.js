@@ -1,8 +1,8 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
 import Chart from "chart.js/auto";
+import { Button, Card, Space } from "antd";
 import styled from "styled-components";
-import { Button, Card } from "antd";
 
 const labels = ["January", "February", "March", "April", "May", "June", "July"];
 
@@ -35,23 +35,16 @@ const data = {
   ],
 };
 
-const StyledButton = styled(Button)`
-  background-color: #007bff;
-  color: #f0f0f0;
+const StyledChart = styled(Bar)`
+  height: 400px;
 `;
 
 const BarChart = () => {
   return (
-    <Card
-      title="Bar Chart"
-      extra={<StyledButton>Customize</StyledButton>}
-      style={{
-        width: 1100,
-        height: 620,
-      }}
-    >
-      {" "}
-      <Bar data={data} />{" "}
+    <Card title="Bar Chart" extra={<Button type="primary">Customize</Button>}>
+      <Space align="center" direction="vertical" style={{ width: "100%" }}>
+        <StyledChart data={data} />{" "}
+      </Space>
     </Card>
   );
 };

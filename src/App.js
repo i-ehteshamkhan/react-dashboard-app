@@ -1,10 +1,14 @@
 import React from "react";
-import { Layout, theme } from "antd";
+import { Layout } from "antd";
 import styled from "styled-components";
 import Home from "./components/Home/Index";
 import Navbar from "./components/Navbar/Index";
 import Sidebar from "./components/Sidebar/Index";
 import GlobalStyle from "./styles/globalstyles";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Widgets from "./views/Widgets";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 const { Content } = Layout;
 
 const StyledLayout = styled(Layout)`
@@ -17,18 +21,24 @@ const StyledLayout = styled(Layout)`
 
 const App = () => {
   return (
-    <>
-      <GlobalStyle />
-      <Layout>
-        <Navbar />
-        <Content>
-          <StyledLayout>
-            <Sidebar />
-            <Home />
-          </StyledLayout>
-        </Content>
-      </Layout>
-    </>
+    <Provider store={store}>
+      <Router>
+        <GlobalStyle />
+        <Layout>
+          <Navbar />
+          <Content>
+            <StyledLayout>
+              <Sidebar />
+              <Routes>
+                <Route index element={<Home />} />
+                <Route path="/widgets" element={<Widgets />} />
+                {/* <Route path="/widgets" element={<Widgets />} /> */}
+              </Routes>
+            </StyledLayout>
+          </Content>
+        </Layout>
+      </Router>
+    </Provider>
   );
 };
 

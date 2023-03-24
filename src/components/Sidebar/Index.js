@@ -1,4 +1,4 @@
-import { Layout, Menu } from "antd";
+import { Button, Layout, Menu, Typography } from "antd";
 import React from "react";
 import {
   CompassOutlined,
@@ -11,6 +11,7 @@ import {
   ShoppingOutlined,
   UnlockOutlined,
 } from "@ant-design/icons";
+import { Link, useNavigate } from "react-router-dom";
 const { Sider } = Layout;
 
 const AppChild = [
@@ -32,86 +33,95 @@ const AppChild = [
   },
 ];
 
-const sideItems = [
-  {
-    key: 1,
-    icon: <HomeOutlined />,
-    label: "Home",
-  },
-  {
-    key: 2,
-    icon: <ShoppingOutlined />,
-    label: "Apps",
-    children: AppChild,
-  },
-  {
-    key: 3,
-    icon: <FireOutlined />,
-    label: "Widgets",
-  },
-  {
-    key: 4,
-    icon: <LayoutOutlined />,
-    label: "Taskboard",
-  },
-  {
-    key: 5,
-    icon: <PieChartOutlined />,
-    label: "Charts",
-    children: new Array(4).fill(null).map((_, j) => {
-      return {
-        key: 1,
-        label: `option`,
-      };
-    }),
-  },
-  {
-    key: 6,
-    icon: <PictureOutlined />,
-    label: "Media",
-    children: new Array(4).fill(null).map((_, j) => {
-      return {
-        key: 1,
-        label: `option`,
-      };
-    }),
-  },
-  {
-    key: 7,
-    icon: <CompassOutlined />,
-    label: "Maps",
-    children: new Array(4).fill(null).map((_, j) => {
-      return {
-        key: 1,
-        label: `option`,
-      };
-    }),
-  },
-  {
-    key: 8,
-    icon: <CrownOutlined />,
-    label: "Extras",
-    children: new Array(4).fill(null).map((_, j) => {
-      return {
-        key: 1,
-        label: `option`,
-      };
-    }),
-  },
-  {
-    key: 9,
-    icon: <UnlockOutlined />,
-    label: "Authentication",
-    children: new Array(4).fill(null).map((_, j) => {
-      return {
-        key: 1,
-        label: `option`,
-      };
-    }),
-  },
-];
-
 const Sidebar = () => {
+  const navigate = useNavigate();
+
+  const sideItems = [
+    {
+      key: "/",
+      icon: <HomeOutlined />,
+      label: "Home",
+      onClick: () => {
+        navigate("/");
+      },
+    },
+    {
+      key: "/widgets",
+      icon: <FireOutlined />,
+      label: "Widgets",
+      onClick: () => {
+        navigate("/widgets");
+      },
+    },
+    {
+      key: 2,
+      icon: <ShoppingOutlined />,
+      label: "Apps",
+      children: AppChild,
+    },
+
+    {
+      key: 4,
+      icon: <LayoutOutlined />,
+      label: "Taskboard",
+    },
+    {
+      key: 5,
+      icon: <PieChartOutlined />,
+      label: "Charts",
+      children: new Array(4).fill(null).map((_, j) => {
+        return {
+          key: 1,
+          label: `option`,
+        };
+      }),
+    },
+    {
+      key: 6,
+      icon: <PictureOutlined />,
+      label: "Media",
+      children: new Array(4).fill(null).map((_, j) => {
+        return {
+          key: 1,
+          label: `option`,
+        };
+      }),
+    },
+    {
+      key: 7,
+      icon: <CompassOutlined />,
+      label: "Maps",
+      children: new Array(4).fill(null).map((_, j) => {
+        return {
+          key: 1,
+          label: `option`,
+        };
+      }),
+    },
+    {
+      key: 8,
+      icon: <CrownOutlined />,
+      label: "Extras",
+      children: new Array(4).fill(null).map((_, j) => {
+        return {
+          key: 1,
+          label: `option`,
+        };
+      }),
+    },
+    {
+      key: 9,
+      icon: <UnlockOutlined />,
+      label: "Authentication",
+      children: new Array(4).fill(null).map((_, j) => {
+        return {
+          key: 1,
+          label: `option`,
+        };
+      }),
+    },
+  ];
+
   return (
     <Sider
       style={{
@@ -121,7 +131,7 @@ const Sidebar = () => {
     >
       <Menu
         mode="inline"
-        defaultSelectedKeys={["1"]}
+        defaultSelectedKeys={[window.location.pathname]}
         defaultOpenKeys={["sub1"]}
         style={{
           height: "100%",
